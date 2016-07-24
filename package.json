@@ -12,10 +12,15 @@
     "koa-compose": "^3.1.0",
     "koa-logger": "^2.0.0",
     "koa-router": "^7.0.1",
-    "koa-session2": "^1.0.8"
+    "koa-session2": "^1.0.8",
+    "koa-static2": "^0.1.5",
+    "koa-views": "^5.0.2",
+    "pug": "^2.0.0-beta4",
+    "swig": "^1.4.2"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node babel.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

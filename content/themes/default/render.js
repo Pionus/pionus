@@ -1,14 +1,14 @@
-/*
-    the custom render file
-*/
+/**
+ * the custom render file
+ * options for koa-views
+ * set extension value if not html
+ */
 
-import Pug from "koa-pug";
+let options = {
+    map: {
+        pug: "pug",
+    },
+    extension: "pug",
+};
 
-const pug = new Pug({
-    // set to current folder
-    viewPath: __dirname,
-});
-
-export default function(app) {
-    pug.use(app);
-}
+export default options;
