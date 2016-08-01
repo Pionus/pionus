@@ -7,3 +7,10 @@ html
         link(rel="stylesheet", type="text/css", href="/static/styles/main.css")
     body
         include components/header.pug
+        section.container.grid-960
+            each i in [1,2,3,4,5]
+                .columns
+                    .column
+                        h3 This is a title
+                        summary This is the summary
+                        p To make a contribution to the world by making tools for the mind that advance humankind.

@@ -15,6 +15,7 @@
     "koa-session2": "^1.0.8",
     "koa-static2": "^0.1.5",
     "koa-views": "^5.0.2",
+    "mysql2": "^1.0.0-rc.9",
     "pug": "^2.0.0-beta4",
     "swig": "^1.4.2"
   },
