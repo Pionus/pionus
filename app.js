@@ -11,7 +11,7 @@ import system_router from "./routers/system.js";
 
 import session from "koa-session2";
 import convert from "koa-convert";
-import passport from "koa-passport";
+// import passport from "koa-passport";
 
 const app = new Koa();
 
