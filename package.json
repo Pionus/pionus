@@ -1,5 +1,5 @@
 {
-  "name": "new-server",
+  "name": "pionus",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -26,12 +26,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Secbone/new-server.git"
+    "url": "git+https://github.com/Pionus/pionus.git"
   },
   "author": "Secbone",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Secbone/new-server/issues"
+    "url": "https://github.com/Pionus/pionus/issues"
   },
-  "homepage": "https://github.com/Secbone/new-server#readme"
+  "homepage": "https://github.com/Pionus/pionus#readme"
 }
