@@ -1,6 +1,7 @@
 import Router from "koa-router";
 
 import admin from "./admin.js";
+import pool from "../database/db.js";
 
 const router = new Router();
 
