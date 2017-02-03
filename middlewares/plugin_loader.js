@@ -1,13 +1,13 @@
-import fs from "fs";
-import path from "path";
-import compose from "koa-compose";
+const fs = require('fs');
+const path = require('path');
+const compose = require('koa-compose');
 
 /**
  * Compose all Plugin for load
  * @param {String} srcpath [dir path where plugins in]
  * @return {Function} for koa.use
  */
-export default function(srcpath, filename = "index.js") {
+function pluginLoader(srcpath, filename = 'index.js') {
     let plugins = {};
 
     let dirs = getDirs(srcpath);
@@ -17,10 +17,10 @@ export default function(srcpath, filename = "index.js") {
     for(let name of dirs) {
         let fn = require(path.join(srcpath, name, filename));
 
-        if(typeof fn != "function" && typeof fn.default == "function") {
+        if(typeof fn != 'function' && typeof fn.default == 'function') {
             fn = fn.default;
         } else {
-            throw(new Error("plugin must be a function!"));
+            throw(new Error('plugin must be a function!'));
         }
 
         plugins[name] = fn;
@@ -42,3 +42,5 @@ function getDirs(srcpath) {
         return fs.statSync(path.join(srcpath, file)).isDirectory();
     });
 }
+
+module.exports = pluginLoader;

@@ -1,14 +1,16 @@
-import Router from "koa-router";
+const Router = require('koa-router');
 
-import admin from "./admin.js";
-import pool from "../database/db.js";
+const api = require('./api.js');
+const admin = require('./admin.js');
+const pool = require('../database/db.js');
 
 const router = new Router();
 
-router.get("/", ctx => {
-    return ctx.render("index");
+router.get('/', ctx => {
+    return ctx.render('index');
 });
 
-router.use("/admin", admin.routes());
+router.use('/api', api.routes());
+router.use('/admin', admin.routes());
 
-export default router;
+module.exports = router;

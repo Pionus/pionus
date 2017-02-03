@@ -1,6 +1,8 @@
 "use strict";
 
-export default function(ctx, next) {
+function plugin(ctx, next) {
     console.log(`plugin "test" start`);
     console.log(`request time ${new Date()}`);
 }
+
+module.exports = plugin;

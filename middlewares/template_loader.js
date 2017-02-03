@@ -1,14 +1,14 @@
-import fs from "fs";
-import path from "path";
-import views from "koa-views";
-import serve from "koa-static2";
-import compose from "koa-compose";
+const fs = require('fs');
+const path = require('path');
+const views = require('koa-views');
+const serve = require('koa-static2');
+const compose = require('koa-compose');
 
-import config from "../config.js";
+const config = require('../config.js');
 
-// const renderfile = "render.js";
+// const renderfile = 'render.js';
 
-export default function(theme_path) {
+function templateLoader(theme_path) {
     let theme_name = config.current_theme;
     let dirpath = path.join(theme_path, theme_name);
 
@@ -22,9 +22,9 @@ export default function(theme_path) {
     //     if(options.default) options = options.default;
     //
     //     // if function then eval
-    //     if(typeof options == "function") options = options.apply(ctx, [ctx, next]);
+    //     if(typeof options == 'function') options = options.apply(ctx, [ctx, next]);
     // } catch(e) {
-    //     throw(new Error("theme render setting error!"));
+    //     throw(new Error('theme render setting error!'));
     // }
 
     return compose([
@@ -39,13 +39,13 @@ export default function(theme_path) {
  * @return {Function} for koa.use
  */
 function render(dirpath) {
-    let supports = ["html", "pug"];
+    let supports = ['html', 'pug'];
 
     // default options
     let options = {
         map: {
-            html: "swig",
-            pug: "pug",
+            html: 'swig',
+            pug: 'pug',
         },
     };
 
@@ -54,7 +54,7 @@ function render(dirpath) {
         try {
             fs.accessSync(path.format({
                 dir: dirpath,
-                name: "index",
+                name: 'index',
                 ext: `.${item}`,
             }));
 
@@ -75,7 +75,9 @@ function render(dirpath) {
  * @return {Function} for koa.use
  */
 function servestatic(dirpath) {
-    let staticpath = path.join(dirpath, "static");
+    let staticpath = path.join(dirpath, 'static');
 
-    return serve("static", staticpath);
+    return serve('static', staticpath);
 }
+
+module.exports = templateLoader;

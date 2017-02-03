@@ -1,11 +1,11 @@
 "use strict";
 
-import path from "path";
+const path = require('path');
 
 const config = {
-    plugin_path: path.join(__dirname, "content/plugins/"),
-    theme_path: path.join(__dirname, "content/themes/"),
-    current_theme: "default",
+    plugin_path: path.join(__dirname, 'content/plugins/'),
+    theme_path: path.join(__dirname, 'content/themes/'),
+    current_theme: 'default',
 };
 
-export default config;
+module.exports = config;

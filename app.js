@@ -1,17 +1,17 @@
-import Koa from "koa";
-import compose from "koa-compose";
+const Koa = require('koa');
+const compose = require('koa-compose');
 
-import config from "./config.js";
-// import system from "./middlewares/system.js";
-import ploader from "./middlewares/plugin_loader.js";
-import tloader from "./middlewares/template_loader.js";
+const config = require('./config.js');
+// const system = require('./middlewares/system.js');
+const ploader = require('./middlewares/plugin_loader.js');
+const tloader = require('./middlewares/template_loader.js');
 
-import system_router from "./routers/system.js";
+const system_router = require('./routers/system.js');
 
 
-import session from "koa-session2";
-import convert from "koa-convert";
-// import passport from "koa-passport";
+const session = require('koa-session2');
+const convert = require('koa-convert');
+// const passport = require('koa-passport');
 
 const app = new Koa();
 
@@ -26,4 +26,4 @@ app.use(session());
 app.use(system_router.routes());
 
 
-export default app;
+module.exports = app;

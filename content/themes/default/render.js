@@ -6,9 +6,9 @@
 
 let options = {
     map: {
-        pug: "pug",
+        pug: 'pug',
     },
-    extension: "pug",
+    extension: 'pug',
 };
 
-export default options;
+module.exports = options;
