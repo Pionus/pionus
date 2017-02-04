@@ -1,6 +1,7 @@
 const Router = require('koa-router');
 
 const api = require('./api.js');
+const login = require('./login.js');
 const admin = require('./admin.js');
 const pool = require('../database/db.js');
 
@@ -11,6 +12,7 @@ router.get('/', ctx => {
 });
 
 router.use('/api', api.routes());
+router.use('/login', login.routes());
 router.use('/admin', admin.routes());
 
 module.exports = router;

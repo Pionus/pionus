@@ -1,5 +1,6 @@
 const Koa = require('koa');
 const compose = require('koa-compose');
+const body = require('koa-body');
 
 const config = require('./config.js');
 // const system = require('./middlewares/system.js');
@@ -20,7 +21,7 @@ app.use(tloader(config.theme_path));
 
 //app.use(pl(config.plugin_path))
 //    .use(system);
-
+app.use(body());
 app.use(session());
 
 app.use(system_router.routes());

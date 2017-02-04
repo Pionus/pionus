@@ -35,7 +35,7 @@ function pluginLoader(srcpath, filename = 'index.js') {
 
 /**
  * Get all plugins' dir name
- * @return {Array}
+ * @return {Array} list of dirname 
  */
 function getDirs(srcpath) {
     return fs.readdirSync(srcpath).filter(file => {
