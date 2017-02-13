@@ -8,9 +8,4 @@ const pool = mysql.createPool({
     connectionLimit: 10,
 });
 
-pool.query('select * from pionus_contents').then(data => {
-    // console.log(data);
-});
-
-
 module.exports = pool;

@@ -24,7 +24,7 @@
   "scripts": {
     "start": "node --harmony index.js",
     "babel": "node babel.js",
-    "dev": "pm2 start pm2.config.js",
+    "dev": "pm2 start pm2.config.js && pm2 logs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
