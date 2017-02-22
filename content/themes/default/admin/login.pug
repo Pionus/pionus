@@ -1,6 +1,40 @@
-h1 Admin Login
+extends ../components/base.pug
 
-form(action="/login", method="post")
-    input(type="text", name="user")
-    input(type="password", name="password")
-    button(type="submit") 登录
+block style
+    link(rel="stylesheet", type="text/css", href="/static/styles/admin.css")
+
+block body
+    form.col-xs-12.col-sm-4.col-md-3
+        .form-group
+            input#user.form-input(type="text", name="user", placeholder="Username")
+        .form-group
+            input#password.form-input(type="password", name="password", placeholder="Password")
+        .form-group
+            button#submit.btn.btn-primary.btn-block Login
+block script
+    script.
+        $('form').submit(function(e) {
+            e.preventDefault();
+
+            var user = $('#user').val();
+            var password = $('#password').val();
+            $('#submit').addClass('loading');
+
+            $.ajax({
+                type: 'POST',
+                url: '/api/login',
+                data: {
+                    user: user,
+                    password: password,
+                },
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    $('#submit').removeClass('loading');
+                },
+                error: function(res) {
+                    console.log(res.responseJSON);
+                    $('#submit').removeClass('loading');
+                },
+            });
+        })

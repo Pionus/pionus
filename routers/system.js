@@ -1,6 +1,6 @@
 const Router = require('koa-router');
 
-const api = require('./api.js');
+const api = require('../api/index.js');
 const login = require('./login.js');
 const admin = require('./admin.js');
 const pool = require('../database/db.js');

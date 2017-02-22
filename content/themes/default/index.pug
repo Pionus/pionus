@@ -1,16 +1,11 @@
-doctype html
-html
-    head
-        meta(charset="utf-8")
-        title Blog name
-        link(rel="stylesheet", type="text/css", href="//cdn.bootcss.com/spectre.css/0.1.25/spectre.min.css")
-        link(rel="stylesheet", type="text/css", href="/static/styles/main.css")
-    body
-        include components/header.pug
-        section.container.grid-960
-            each i in [1,2,3,4,5]
-                .columns
-                    .column
-                        h3 This is a title
-                        summary This is the summary
-                        p To make a contribution to the world by making tools for the mind that advance humankind.
+extends components/base.pug
+
+block body
+    include components/header.pug
+    section.container.grid-960
+        each i in [1,2,3,4,5]
+            .columns
+                .column
+                    h3 This is a title
+                    summary This is the summary
+                    p To make a contribution to the world by making tools for the mind that advance humankind.
