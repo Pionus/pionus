@@ -1,5 +1,7 @@
 const crypto = require('crypto');
-const pool = require('./db.js');
+const {pool} = require('./db.js');
+
+const TABLE_NAME = 'pionus_users';
 
 class User {
     constructor(name) {
@@ -12,9 +14,9 @@ class User {
      * @return Promise {Boolean}
      */
     static auth(name, password) {
-        let str = `select password from pionus_users where name='${name}'`;
-        console.log(str);
-        return pool.query(str).then(([results]) => {
+        let queryStr = `select password from ${TABLE_NAME} where name = ?`;
+
+        return pool.query(queryStr, [name]).then(([results]) => {
             return results[0].password == this.pwdEncode(password);
         });
     }

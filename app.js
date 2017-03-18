@@ -16,6 +16,8 @@ const convert = require('koa-convert');
 
 const app = new Koa();
 
+app.context.reply = require('./utils/reply.js');
+
 // use custom template render
 app.use(tloader(config.theme_path));
 

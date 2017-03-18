@@ -19,19 +19,17 @@ router.post('/', async ctx => {
     let {user, password} = ctx.request.body;
 
     if(!user || !password) {
-        ctx.status = 400;
-        return ctx.body = {msg: 'username and password required!'};
+        return ctx.reply(400, 'username and password required!');
     }
 
     let isAuth = await User.auth(user, password);
     if(!isAuth) {
-        ctx.status = 401;
-        return ctx.body = {msg: 'Unauthorized!'};
+        return ctx.reply(401);
     }
 
     console.log('auth!');
 
-    ctx.body = {msg: 'ok'}
+    return ctx.reply(200);
 })
 
 module.exports = router;
