@@ -3,7 +3,13 @@ const Article = require('../database/article.js');
 
 const router = new Router();
 
-router.get('/list', ctx => {});
+router.get('/list/:page?', async ctx => {
+    let {page} = ctx.params || 0;
+
+    let list = await Article.list(page);
+
+    return ctx.reply(200, list);
+});
 
 router.put('/new', ctx => {
 

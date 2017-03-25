@@ -7,19 +7,24 @@ class Article {
 
     }
 
-    static getList(page = 0) {
+    static list(page = 0) {
+        page = parseInt(page) || 0;
 
+        const PAGE_SIZE = 10;
+        const queryStr = `SELECT * FROM ${TABLE_NAME} ORDER BY created DESC LIMIT ${PAGE_SIZE * page}, ${PAGE_SIZE}`;
+
+        return pool.query(queryStr).then(([results]) => {
+            return results;
+        });
     }
 
     static byId(id) {
-        let queryStr = `select * from ${TABLE_NAME} where cid = ?`;
+        const queryStr = `SELECT * FROM ${TABLE_NAME} WHERE cid = ?`;
 
         return pool.query(queryStr, [id]).then(([results]) => {
             // TODO
-            console.log(results)
-
-            return results;
-        })
+            return results[0];
+        });
     }
 }
 
